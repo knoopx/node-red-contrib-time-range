@@ -1,0 +1,21 @@
+{
+  "name": "node-red-contrib-time-range",
+  "version": "1.0.0",
+  "description": "maps a time domain to the specified range",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Víctor Martínez",
+  "license": "ISC",
+  "node-red": {
+    "nodes": {
+      "time-range": "time-range.js"
+    }
+  },
+  "dependencies": {
+    "d3-scale": "^3.0.0",
+    "moment": "^2.29.1",
+    "suncalc2": "^1.8.1"
+  }
+}
