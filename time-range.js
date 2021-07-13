@@ -62,11 +62,20 @@ module.exports = (RED) => {
   class TimeRangeNode {
     constructor(config) {
       RED.nodes.createNode(this, config)
+
+      const { domain = [], range = [] } = config
+
+      this.domain = domain.map((x) => x.value)
+      this.range = range.map((x) => x.value)
+
       this.on("input", this.onInput)
     }
 
     onInput = (msg) => {
-      const { domain, range, location } = msg.payload
+      const { location } = msg.payload
+
+      const domain = msg.payload.domain || this.domain
+      const range = msg.payload.range || this.range
 
       const now = moment()
       const parsedDomain = domain.map((x) => parse(now, x, location).toDate())
